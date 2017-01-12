@@ -4,14 +4,15 @@
 * @Email:  tamyworld@gmail.com
 * @Filename: task.ts
 * @Last modified by:   tushar
-* @Last modified time: 2017-01-11T19:49:38+05:30
+* @Last modified time: 2017-01-12T17:47:45+05:30
 */
 
 
 
 export class Task {
+  public priority:number
   constructor(
     public title:string,
-    public description:string
+    public description:string,
   ){}
 }
