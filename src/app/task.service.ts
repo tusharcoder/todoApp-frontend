@@ -4,7 +4,7 @@
 * @Email:  tamyworld@gmail.com
 * @Filename: task.service.ts
 * @Last modified by:   tushar
-* @Last modified time: 2017-01-12T10:54:17+05:30
+* @Last modified time: 2017-01-12T11:38:45+05:30
 */
 
 
@@ -23,22 +23,22 @@ export class TaskService {
     private http:Http
   ) { }
   private taskUrl="http://localhost:8000/api/tasks";
-  gettasks():Observable<Task>{
+  gettasks():Observable<Task[]>{
      return this.http.get(this.taskUrl).map(res=>res.json()).catch((error:any)=>Observable.throw(error=>error.json()||'server Error'));
   }
-  addTask(body:Task):Observable<Task>{
+  addTask(body:Task):Observable<Task[]>{
     let bodyString=JSON.stringify(body);
     let headers={"Content-type":"application/json"};
     let options= new RequestOptions(headers);
     return this.http.post(this.taskUrl,bodyString,options).map(res=>res.json()).catch((error:any)=>Observable.throw(error=>error.json()||'Server Error'));
   }
-  updateTask(body:Task):Observable<Task>{
+  updateTask(body:Task):Observable<Task[]>{
     let bodyString=JSON.stringify(body);
     let headers={'Content-type':'application/json'};
     let options=new RequestOptions(headers);
     return this.http.put('${this.taskUrl}${id}/',bodyString,options).map(res=>res.json()).catch((error:any)=>Observable.throw(error=>error.json()||"Server Error"));
   }
-  removeTask(id:string):Observable<Task>{
+  removeTask(id:string):Observable<Task[]>{
     let header={'Content-type':'application/json'};
     let options=new RequestOptions(header);
     return this.http.delete('${this.taskUrl}${id}/').map(res=>res.json()).catch((error:any)=>Observable.throw(error=>error.json()||'Server Error'));
