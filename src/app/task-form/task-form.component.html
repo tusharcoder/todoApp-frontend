@@ -1,0 +1,20 @@
+<!--
+@Author: Tushar Agarwal(tusharcoder) <tushar>
+@Date:   2017-01-10T22:33:36+05:30
+@Email:  tamyworld@gmail.com
+@Filename: task-form.component.html
+@Last modified by:   tushar
+@Last modified time: 2017-01-12T13:52:07+05:30
+-->
+
+<form (ngSubmit)="submitTask(model)">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-pushpin"></span></span>
+            <input type="text" class="form-control" [(ngModel)]="model.title" name="text1" value="" placeholder="Title">
+          </div>
+            <textarea name="textarea1" class="form-control" [(ngModel)]="model.description" rows="3" cols="80" placeholder="Description"></textarea>
+            <button type="submit" *ngIf="!editmode" class="btn btn-primary btn-block">Add</button>
+            <button type="submit" *ngIf="editmode" class="btn btn-warning btn-block">Update</button>
+        </div>
+      </form>

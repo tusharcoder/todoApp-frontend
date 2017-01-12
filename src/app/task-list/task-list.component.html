@@ -1,0 +1,39 @@
+<!--
+@Author: Tushar Agarwal(tusharcoder) <tushar>
+@Date:   2017-01-12T12:47:34+05:30
+@Email:  tamyworld@gmail.com
+@Filename: task-list.component.html
+@Last modified by:   tushar
+@Last modified time: 2017-01-12T13:49:33+05:30
+-->
+
+
+
+<div class="text-center">
+        <h2 style="color:White;">Tasks</h2>
+      </div>
+
+      <div class="panel panel-default" *ngFor="let task of taskList">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-12 text-left">
+                <h3 class="panel-title">{{task.title}}</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          {{task.description}}
+        </div>
+
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-info" (click)=editTask(task)><span class="glyphicon glyphicon-edit"></span></button>
+              <button type="button" class="btn btn-danger" (click)=removeTask(task.id)><span class="glyphicon glyphicon-remove"></span></button>
+              <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-arrow-up"></span></button>
+              <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-arrow-down"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
