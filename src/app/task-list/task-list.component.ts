@@ -4,7 +4,7 @@
 * @Email:  tamyworld@gmail.com
 * @Filename: task-list.component.ts
 * @Last modified by:   tushar
-* @Last modified time: 2017-01-12T22:24:02+05:30
+* @Last modified time: 2017-01-12T23:35:48+05:30
 */
 
 
@@ -61,13 +61,15 @@ export class TaskListComponent implements OnInit,OnChanges {
     task.priority-=1;
     this.taskService.updateTask(task).subscribe(tasks=>{
       EmitChangesService.get(this.listId).emit(tasks);
-    })
+    });
     }
   }
-  decreasePriority(task:Task){
-    task.priority+=1;
+  decreasePriority(task:Task, index){
+    if(this.taskList.length>1){
+    task.priority=this.taskList[index+1].priority;
     this.taskService.updateTask(task).subscribe(tasks=>{
       EmitChangesService.get(this.listId).emit(tasks);
-    })
+      })
+    }
   }
 }

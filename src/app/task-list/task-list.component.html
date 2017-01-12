@@ -4,7 +4,7 @@
 @Email:  tamyworld@gmail.com
 @Filename: task-list.component.html
 @Last modified by:   tushar
-@Last modified time: 2017-01-12T17:56:26+05:30
+@Last modified time: 2017-01-12T23:34:05+05:30
 -->
 
 
@@ -13,7 +13,7 @@
         <h2 style="color:White;">Tasks</h2>
       </div>
 
-      <div class="panel panel-default" *ngFor="let task of taskList">
+      <div class="panel panel-default" *ngFor="let task of taskList;let i=index">
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-12 text-left">
@@ -29,10 +29,11 @@
         <div class="panel-footer">
           <div class="row">
             <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-default" (click)=removeTask(task.id)><span class="glyphicon glyphicon-ok"></span></button>
               <button type="button" class="btn btn-info" (click)=editTask(task)><span class="glyphicon glyphicon-edit"></span></button>
               <button type="button" class="btn btn-danger" (click)=removeTask(task.id)><span class="glyphicon glyphicon-remove"></span></button>
               <button type="button" class="btn btn-warning" (click)=increasePriority(task)><span class="glyphicon glyphicon-arrow-up"></span></button>
-              <button type="button" class="btn btn-warning" (click)=decreasePriority(task)><span class="glyphicon glyphicon-arrow-down"></span></button>
+              <button type="button" class="btn btn-warning" (click)=decreasePriority(task,i)><span class="glyphicon glyphicon-arrow-down"></span></button>
             </div>
           </div>
         </div>
